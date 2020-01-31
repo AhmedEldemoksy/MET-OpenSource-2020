@@ -10,7 +10,7 @@
 
 `$ git`
 
-- Create an empty direcotyr named `ITI` on your Desktop
+- Create an empty direcotyr named `Test` on your Desktop
 - In this directory, try the following command
 
 `$ git status`
