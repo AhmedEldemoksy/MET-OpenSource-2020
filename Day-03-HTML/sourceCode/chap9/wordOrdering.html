@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Word Ordering</title>
+<script>
+  // This function corrects the words' order.
+
+  function correctWordOrder(form) {
+    var tb1, tb2;     // text controls for user entries
+    var word1, word2; // user-entered words
+    var msg;          // message after button clicked
+
+    tb1 = form.elements["word1"];
+    tb2 = form.elements["word2"];
+    word1 = tb1.value;
+    word2 = tb2.value;
+    msg = "Congratulations! The words are now in the" +
+      " correct order!";
+
+    if (word1.toLowerCase() > word2.toLowerCase()) {
+      tb1.value = word2;
+      tb2.value = word1;
+    }
+    else if (word1.toLowerCase() < word2.toLowerCase()) {
+      msg += "<br>(Although they were in the correct order" +
+        " to begin with.)";
+    }
+    else {
+      msg += "<br>(Although with the words being the same," +
+        " the \"correct order\" doesn't mean much.)";
+    }
+    document.getElementById("message").innerHTML = msg;
+  } // end correctWordOrder
+</script>
+</head>
+
+<body>
+<h3>
+  Enter a word in each box.<br>
+  Then click the "&lt;" button to order the words correctly.
+</h3>
+<form>
+  <input type="text" id="word1" size="15">
+  &nbsp;&nbsp;
+  <input type="button" value="&lt;"
+    onclick="correctWordOrder(this.form);">
+  &nbsp;&nbsp;
+  <input type="text" id="word2" size="15">
+</form>
+<p id="message"></p>
+</body>
+</html>

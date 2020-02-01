@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Solar Shadowing</title>
+<link rel="stylesheet" href="../library/microgrid.css">
+<script src="../library/solarAngles.js"></script>
+<style>
+  body {text-align: center;}
+  form {margin: 10px auto;}
+  canvas {
+    margin: -20px auto;
+    border: 3px solid black;
+    background-color: lightgray;
+    transition: background 0.2s;
+  }
+</style>
+<script src="../library/navigation.js"></script>
+</head>
+
+<body onload="createHeaderFooter()">
+<img id="pvArray" alt= "PV" hidden src="../images/pvPanelArray.gif"/>
+<h2>Solar Shadowing by Collector Array</h2>
+<form>
+  Latitude (Deg):
+  <input id="latitude" type="text" size="3" value="39">
+  Base Spacing / Panel Height:
+  <input id="spacing" type="text" size="3" value="1.8">
+  Clearance / Panel Height:
+  <input id="clearance" type="text" size="3" value="0.2"> <br>
+  Panel Slope (Deg):
+  <input id="panelSlope" type="text" size="3" value="30">
+  <input type="button" value="Install Collectors"
+    onclick="setup(this.form)"> <br>
+  Month (0 to 12):
+  <input id="month" type="text" size="3" value="1">
+  Hour (0 to 24):
+  <input id="hour" type="text" size="3" value="12">
+  <input type="button" value="Show Behavior"
+    onclick="showBehavior(this.form)"> <br>
+  Azimuth (Deg):   <!-- clockwise from north -->
+  <input id="azimuth" type="text" size="3" readonly="readonly">
+  Altitude (Deg): 
+  <input id="altitude" type="text" size="3" readonly="readonly"> <br>
+  <input id="run" type="button" value="Run Clock"
+    onclick="runClock(this.form)">
+  <input id="stop" type="button" value="Stop Clock"
+    onclick="stopClock(this.form)"> <br>
+</form><br>
+
+<canvas id="topView" width="700" height="300"></canvas>
+<h4>Two Solar Collector Arrays Above a Flat Roof</h4>
+<p>  
+  This shows a top view of two solar-collector arrays mounted above a
+  light-gray flat roof. Darkened areas show shadowing. At night solar
+  collectors are not visible and everything is midnight blue.  
+</p>
+<p>
+  Modify values in Latitude, Spacing / Height, Clearance / Height,
+  and Panel Slope input boxes and click Install Collectors to display the
+  two collector arrays with illuminated (wider white) top edge.
+</p>
+<p>
+  Modify values in Month and Hour inputs and click Show Behavior to see
+  Azimuth, Altitude, relative Electrical Output, and how shadows fall.
+  A whole number for Month specifies the 21st day of that month (3 is
+  March 21). For other times like April 1 at 2:30 PM, use fractions:
+  Month = 3.35 and Hour = 14.5.
+</p>
+<p>
+  For a dynamic display, click Run Clock. As time passes, months,
+  hours, azimuth, altitude, background color, and shadows change.
+  Simulation begins at the initially specified Month and Hour and steps
+  through subsequent hour and month integers (24 hours on 21st of each
+  month) until you click Stop Clock or until midnight, January 6, which
+  corresponds to Month = 1, Hour = 0. 
+</p>
+</body>
+</html>

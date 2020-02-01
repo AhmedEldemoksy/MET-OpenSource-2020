@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Line Examples</title>
+<script>
+  function draw() {
+    var ctx;  // the canvas object's context
+    ctx = document.getElementById("canvas").getContext("2d");
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 4;
+/*
+    ctx.beginPath();
+    ctx.moveTo(40, 20);
+    ctx.lineTo(80, 20);
+    ctx.moveTo(90, 20);
+    ctx.lineTo(130, 20);
+    ctx.moveTo(140, 20);
+    ctx.lineTo(180, 20);
+    ctx.stroke();
+*/
+    ctx.beginPath();
+    ctx.moveTo(60, 20);
+    ctx.lineTo(40, 60);
+    ctx.lineTo(80, 60);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "blue";
+    ctx.beginPath();
+    ctx.moveTo(160, 20);
+    ctx.lineTo(140, 60);
+    ctx.lineTo(180, 60);
+    ctx.closePath();
+    ctx.stroke();
+} // end draw
+</script>
+</head>
+
+<body onload="draw();">
+<canvas id="canvas" width="250" height="70">
+  Sorry - This page uses <code>canvas</code>, and
+  your browser doesn't support it.
+</canvas>
+</body>
+</html>

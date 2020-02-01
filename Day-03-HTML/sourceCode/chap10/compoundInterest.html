@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Compound Interest</title>
+<style>
+  .table {display: table;}
+  .row {display: table-row;}
+  .row > * {display: table-cell;}
+  .table {border-spacing: 0 3px;}
+  .row > :first-child {
+    text-align: right;
+    padding-right: 10px;
+  }
+  table {text-align: center;}
+  table, th, td {border: none;}
+  th, td {padding: 10px;}
+  th {
+    background-color: midnightblue;
+    color: white;
+  }
+  td {background-color: mistyrose;}
+</style>
+<script src="compoundInterest.js"></script>
+</head>
+
+<body>
+<h3>Compound Interest Calculator</h3>
+<form class="table" id="input">
+  <div class="row">
+    <label for="deposit">Initial deposit:</label>
+    <input type="number" id="deposit"
+      min="1" max="9999" step="1" required>
+  </div>
+  <div class="row">
+    <label for="rate">Annual interest rate:</label>
+    <input type="number" id="rate"
+      min="0" max="100" step=".1" required>
+    <span>&nbsp;%</span>
+  </div>
+  <div class="row">
+    <label for="years">Years to grow:</label>
+    <input type="number" id="years"
+      min="1" max="20" step="1" required>
+  </div>
+</form>
+<br>
+<input type="button" form="input" value="Generate compound interest"
+  onclick="generateTable(this.form);">
+<br><br>
+<div id="result"></div>
+</body>
+</html>

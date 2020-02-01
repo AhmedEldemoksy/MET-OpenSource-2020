@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Animal Stacking</title>
+<style>
+  h1 {text-align: center;}
+  .images {
+    position: relative;
+    height: 504px; width: 786px;
+  }
+  .tiger {
+    position: absolute;
+    left: 0; top: 0;
+    z-index: 0;
+  }
+  .lemur {
+    position: absolute;
+    left: 15%; top: 10%;
+    z-index: 1;
+  }
+  .red-panda {
+    position: absolute;
+    right: 0; bottom: 0;
+    z-index: 2;
+  }
+</style>
+<script>
+  var topIndex = 2;
+
+  // This function uses the topIndex global variable to
+  // bring the clicked picture to the front.
+
+  function moveToTop(picture) {
+    picture.style.zIndex = ++topIndex;
+  }
+</script>
+</head>
+
+<body>
+<h1>Furry Forest Friends</h1>
+<div class="images">
+  <img src="../images/tiger.jpg" width="470" height="365"
+    alt="tiger" class="tiger" onclick="moveToTop(this)">
+  <img src="../images/lemur.jpg" width="500" height="386"
+    alt="lemur" class="lemur" onclick="moveToTop(this)">
+  <img src="../images/redPanda.jpg" width="515" height="360"
+    alt="red panda" class="red-panda" onclick="moveToTop(this)">
+</div>
+</body>
+</html>

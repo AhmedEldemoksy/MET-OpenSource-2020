@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Water Balloon Fun!</title>
+<style>
+  html {display: flex; justify-content: center;}
+  body {
+    background-color: black;
+    background-image: url(../images/waterBalloons.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .table {display: table;}
+  .row {display: table-row;}
+  .row > * {display: table-cell;}
+
+  .table {border-spacing: 10px;}
+  .row > :first-child {text-align: right;}
+  .row > * {font-size: 2em;}
+
+  .top {font-size: 4em; text-align: center;}
+  .bottom {text-align: center;}
+  .bottom > * {font-size: 2em;}
+  *:not(input) {color: white;}
+</style>
+
+<script>
+  // This function calculates and displays the total water
+  // needed to fill up water balloons.
+
+  function calculateWater(form) {
+    const CUBIC_INCHES_PER_GALLON = 231;
+    var qty;      // number of balloons
+    var diameter; // balloon diameter (in inches)
+    var gallons;  // total gallons of water needed
+
+    qty = parseInt(form.elements["qty"].value);
+    diameter = parseFloat(form.elements["diameter"].value);
+    gallons = qty *
+      (4 / 3 * Math.PI * Math.pow(diameter / 2, 3) /
+      CUBIC_INCHES_PER_GALLON);
+    form.elements["total-water"].value =
+      "Gallons of water needed to fill up the balloons = " +
+      gallons.toFixed(1);
+  } // end calculateWater
+</script>
+</head>
+
+<body>
+<h1 class="top">Water Balloon Fun!</h1>
+<form class="table" id="myForm">
+  <div class="row">
+    <label for="qty">Number of spherical water balloons:</label>
+    <input type="text" id="qty" size="3" maxlength="3">
+  </div>
+  <div class="row">
+    <label for="diameter">Diameter of each balloon in inches:</label>
+    <input type="text" id="diameter" size="4" maxlength="4">
+  </div>
+</form>
+<br>
+<div class="bottom">
+  <input type="button" form="myForm" value="Calculate water"
+    onclick="calculateWater(this.form);">
+  <br><br>
+  <output id="total-water" form="myForm"></output>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Job Application</title>
+<script>
+  // Evaluate user's job skills and generate hiring plan.
+
+  function checkInput(form) {
+    var message;      // hiring plan after examining job skills
+    var jobSkillsCBs; // collection of checkboxes
+    var i = 0;
+
+    if (form.checkValidity()) {
+      message =
+        "You're hired! We need a website overhaul." +
+        " Have it done by Saturday midnight. We go live on Sunday.";
+    }
+    else {
+      message = "Sorry we can't hire you." +
+        " You are deficient in these areas:";
+      jobSkillsCBs = form.elements["jobSkills"];
+
+/*
+      for (let skill of jobSkillsCBs) {
+        if (!skill.checkValidity()) {
+          message += "<br>" + skill.value;
+        }
+      } // end for
+ 
+      for (let i=0; i<jobSkillsCBs.length; i++) {
+        if (!jobSkillsCBs[i].checkValidity()) {
+          message += "<br>" + jobSkillsCBs[i].value;
+        }
+      } // end for
+*/
+      while (i < jobSkillsCBs.length) {
+        if (!jobSkillsCBs[i].checkValidity()) {
+          message += "<br>" + jobSkillsCBs[i].value;
+        }
+        i++;
+      } // end while
+    } // end if
+
+    document.getElementById("message").innerHTML = message;
+  } // end checkInput
+</script>
+</head>
+
+<body>
+<h2>Web Programmer Job Application</h2>
+<p>We need the following skillset. Which skills do you possess?</p>
+<form>
+  <input type="checkbox" name="jobSkills" value="HTML5" required>
+    know HTML5<br>
+  <input type="checkbox" name="jobSkills" value="CSS" required>
+    know CSS<br>
+  <input type="checkbox" name="jobSkills" value="coffee making" required>
+    make good coffee<br><br>
+  <input type="button" value="Submit" onclick="checkInput(this.form);">
+</form>
+<p id="message"></p>
+</body>
+</html>

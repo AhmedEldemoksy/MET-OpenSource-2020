@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Game Night</title>
+<style>
+  body {background-color: rgb(205, 250, 255);}
+</style>
+<script>
+  // Direct the user to the ACM Club page.
+
+  function partyOn() {
+    if (confirm("Can you handle the excitement?")) {
+      window.location.assign(
+        "http://www.park.edu/clubs-and-organizations" +
+        "/active-student-clubs.html");
+    }
+  } // end partyOn
+
+/*
+  // Print a party reservation pass.
+
+  function partyOn() {
+    var name; // user's name
+
+    name = prompt("What is your name?", "");
+    if (name != null) {
+      alert("The next pop-up will be your party" +
+        " reservation. Print it.");
+      alert("Admit one to the ACM Club party: " + name);
+    }
+  } // end partyOn
+*/
+</script>
+</head>
+
+<body>
+<h1>Park ACM Club Game Night</h1>
+<p>
+  Join Park's ACM Club for another wild and crazy
+  night of computer fun!
+</p>
+<ul>
+  <li>Play computer games!</li>
+  <li>Talk about computers!</li>
+  <li>Win posters of your favorite computers!</li>
+</ul>
+<p>Confirm your reservation now by clicking below.</p>
+<input type="button" value="Party Reservations" onclick="partyOn();">
+</body>
+</html>

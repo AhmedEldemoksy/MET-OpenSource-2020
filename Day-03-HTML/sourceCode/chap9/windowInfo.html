@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Window Information</title>
+<script>
+  // This function displays information about the window.
+
+  function displayWindowInfo() {
+    var msg1, msg2, msg3; // they hold window information
+    msg1 = document.getElementById("location-info");
+    msg1.innerHTML =
+      "This page's full URL: " + window.location.href + "<br>" +
+      "This page's protocol: " + window.location.protocol;
+    msg2 = document.getElementById("browser-info");
+    msg2.innerHTML =
+      "Browser name: " + window.navigator.userAgent;
+    msg3 = document.getElementById("screen-info");
+    msg3.innerHTML =
+      "Screen width: " + window.screen.availWidth +
+      " pixels<br>" +
+      "Screen height: " + window.screen.availHeight + " pixels";
+  } // end displayWindowInfo
+</script>
+</head>
+
+<body onload="displayWindowInfo();">
+<h2>Getting Information From the Window Object</h2>
+<p id="location-info"></p>
+<p id="browser-info"></p>
+<p id="screen-info"></p>
+</body>
+</html>

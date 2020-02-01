@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>George Orwell's 1984</title>
+<script>
+  function displayQuotes() {
+    var ctx;  // the canvas object's context
+
+    ctx = document.getElementById("canvas").getContext("2d");
+    ctx.font = "2em 'Times New Roman', serif";
+    ctx.fillText("\"The clocks were striking thirteen.\"", 5, 30);
+    ctx.textAlign = "center";
+    ctx.fillText("\"The clocks were striking thirteen.\"", 300, 110, 350);
+    ctx.strokeText("\"He loved Big Brother.\"", 300, 160, 350);
+  } // end displayQuotes
+</script>
+</head>
+
+<body onload="displayQuotes();">
+<canvas id="canvas" width="600" height="170">
+</canvas>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Coding Elements</title>
+<style>
+  p {margin-bottom: 0;}
+  pre {margin-top: 0;}
+</style>
+</head>
+
+<body>
+<p>
+  Given the following JavaScript code fragment. If the
+  user enters <kbd>1992</kbd>, then <var>benefitsYear</var>
+  will be 2054, and the output will be <samp>The earliest
+  you can receive social security benefits is 2054</samp>.
+</p>
+<pre><code>
+  var birthYear;    // 4 digit year of birth
+  var benefitsYear; // The year when social
+                    // security benefits can start
+  birthYear = prompt("Enter your birth year:", "");
+  benefitsYear = parseInt(birthYear) + 62;
+  alert("The earliest you can receive social" +
+    " security benefits is " + benefitsYear + ".");
+</code></pre>
+</body>
+</html>
+
+<!--
+  <code style="white-space: pre;">
+  </code>
+-->

@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Hot and Cold Labels</title>
+<style>
+  .hot {background-color: red;}
+  .cold {background-color: blue;}
+  .label {
+    color: white;
+    font: bold xx-large Lucida, monospace;
+    border: solid black;
+    border-radius: 50%;
+    padding: 20px;
+    margin: 20px;
+    /* From http://stackoverflow.com/questions/11700985/margin-top-not-working-for-span-element:
+       span is inline and vertical margins do not work on inline.
+       vertical margins do work with inline-block */
+    display: inline-block;
+  }
+</style>
+</head>
+
+<body>
+<span class="hot label">HOT</span>
+<span class="cold label">COLD</span>
+</body>
+</html>

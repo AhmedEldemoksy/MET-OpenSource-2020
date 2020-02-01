@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>TV Ads</title>
+<style>
+  html {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body {
+    background-image: linear-gradient(to right, blue, #00ffff, #ff7700);
+    text-align: center;
+  }
+  .table {
+    display: table;
+    border-spacing: 20px;
+  }
+  .caption {
+    display: table-caption;
+    font-size: xx-large;
+  }
+  .cell {display: table-cell;}
+</style>
+</head>
+
+<body>
+<div class="table">
+  <div class="caption">Television Advertisements</div>
+  <div class="cell">
+    <h3>Kid in a Swedish Grocery Store:</h3>
+    <video width="397" height="225" preload="metadata" controls
+      poster="../images/groceryStore.jpg">
+      <source src="../video/swedishAd.mp4" type="video/mp4">
+      <source src="../video/swedishAd.webm" type="video/webm"></video>
+  </div>
+  <div class="cell">
+    <h3>Doritos Kid:</h3>
+    <iframe width="400" height="225" allowfullscreen
+      src="http://www.youtube.com/embed/VxzhGPrHCKI?rel=0"></iframe>
+  </div>
+</div>
+</body>
+</html>

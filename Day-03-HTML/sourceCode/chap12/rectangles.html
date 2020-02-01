@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Rectangle Examples</title>
+<script>
+  function rectangleExamples() {
+    var ctx;      // the canvas object's context
+    var gradient; // color transition for rectangles
+
+    ctx = document.getElementById("canvas").getContext("2d");
+    //    ctx.fillStyle = "deepskyblue";
+    gradient = ctx.createLinearGradient(0, 50, 0, 250);
+    gradient.addColorStop(0, "green");
+    gradient.addColorStop(0.5, "yellow");
+    gradient.addColorStop(1, "blue");
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(20, 80, 70, 140);
+
+    ctx.lineWidth = 20;
+    ctx.strokeStyle = "red";
+    ctx.strokeRect(140, 80, 70, 140);
+
+    ctx.fillRect(260, 80, 70, 140);
+    ctx.strokeRect(260, 80, 70, 140);
+
+    ctx.strokeRect(380, 80, 70, 140);
+    ctx.fillRect(380, 80, 70, 140);
+  } // end rectangleExamples
+</script>
+</head>
+
+<body onload="rectangleExamples();">
+<canvas id="canvas" width="480" height="250">
+  Sorry - This page uses <code>canvas</code>, and
+  your browser doesn't support it.
+</canvas>
+</body>
+</html>

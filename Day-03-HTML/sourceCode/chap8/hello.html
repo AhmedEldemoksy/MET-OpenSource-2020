@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Hello</title>
+<script>
+  function displayHello() {
+    var msg;
+    msg = document.getElementById("message");
+    msg.outerHTML = "<h1>Hello, world!</h1>";
+  }
+</script>
+</head>
+
+<body>
+<h3 id="message">
+  To see the traditional first-program greeting, click below.
+</h3>
+<input type="button" value="Click Me!" onclick="displayHello();">
+</body>
+</html>

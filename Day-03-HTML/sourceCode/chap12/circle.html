@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Circle Examples</title>
+<script>
+  function draw() {
+    var ctx;  // the canvas object's context
+
+    ctx = document.getElementById("canvas").getContext("2d");
+    ctx.strokeStyle = "darkviolet";
+    ctx.fillStyle = "lavender";
+    ctx.lineWidth = 4;
+    ctx.arc(80, 35, 25, 0, 2 * Math.PI);
+//    ctx.arc(80, 35, 25, .5 * Math.PI, 1.5 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+  } // end draw
+</script>
+</head>
+
+<body onload="draw();">
+<canvas id="canvas" width="300" height="80">
+</canvas>
+</body>
+</html>

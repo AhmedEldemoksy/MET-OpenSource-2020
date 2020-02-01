@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Modular House Exhibit</title>
+<style>
+  body {
+    font-family: Garamond, serif;
+    background-color: lavender;
+    color: navy;
+  }
+  h1 {
+    font-family: Papyrus, fantasy;
+    font-size: 36px;
+  }
+  .table {
+    display: table;
+    display: flex;
+    align-items: flex-start;
+  }
+  .cell {display: table-cell;}
+  nav > * {
+    display: block;
+    margin: 18px 25px 18px 0;
+  }
+  a > img {
+    width: 120px;
+    height: 80px;
+  }
+  iframe {border: none; overflow: hidden;}
+</style>
+</head>
+
+<body>
+<h1>Modular House Exhibit, Park University's Graphic Design Program</h1>
+<h3>
+  Click a thumbnail at the left in order to move it to the viewing frame
+  at the right.
+</h3>
+<div class="table">
+  <nav class="cell">
+    <a href="../images/houseRenderings/kitchen.jpg" target="full-size">
+      <img src="../images/thumbs/kitchenThumb.jpg" alt="kitchen"></a>
+    <a href="../images/houseRenderings/living.jpg" target="full-size">
+      <img src="../images/thumbs/livingThumb.jpg" alt="living space"></a>
+    <a href="../images/houseRenderings/stairway.jpg" target="full-size">
+      <img src="../images/thumbs/stairwayThumb.jpg" alt="stairway"></a>
+  </nav>
+  <iframe class="cell" name="full-size" width="480" height="320"
+    src="../images/houseRenderings/kitchen.jpg"></iframe>
+</div>
+</body>
+</html>

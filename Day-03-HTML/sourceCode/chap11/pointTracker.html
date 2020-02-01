@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en"
+  onclick="captureClick(event);">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Point Tracker</title>
+<script src="pointTracker.js"></script>
+</head>
+
+<body>
+<h1>Point Tracker</h1>
+<p>
+  Click your mouse anywhere on this web page to capture its location.
+  After capturing two locations, click the "Distance apart" button to
+  display their separation in pixels. Click again for additional points.
+</p>
+Point 1: <span id="pt1"></span>
+<br>
+Point 2: <span id="pt2"></span>
+<br><br>
+<input type="button" id="btn" value="Distance apart"
+  onclick="displayDistance(event);">
+<br><br>
+<div id="message"></div>
+</body>
+</html>

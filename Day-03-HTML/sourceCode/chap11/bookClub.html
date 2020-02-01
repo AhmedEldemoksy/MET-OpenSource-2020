@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Book Club</title>
+<style>
+  h1, h3, h4 {
+    font-family: "Lucida Handwriting", cursive;
+    color: darkolivegreen;
+  }
+  h1 {font-variant: small-caps;}
+
+  .table {display: table; border-spacing: 10px 4px;}
+  .row {display: table-row;}
+  .row > * {display: table-cell;}
+  .row > :first-child {text-align: right;}
+
+  body {
+    display: flex; align-items: flex-start;
+    background-color: oldlace;
+  }
+  img {margin: 20px 0 0 20px;}
+
+  #error, #mtgHeader {display: none;}
+  #error {color: red; margin-bottom: 20px;}
+  #mtgHeader {color: indigo;}
+</style>
+<script src="bookClub.js"></script>
+</head>
+
+<body>
+<div>
+  <h1>Book Club Organizer</h1>
+  <h4><q>High culture and pretentious literature at its finest</q></h4>
+  <form class="table" id="myForm">
+    <div class="row">
+      <label for="author">Author:</label>
+      <input type="text" id="author" size="35" required>
+    </div>
+    <div class="row">
+      <label for="title">Book title:</label>
+      <input type="text" id="title" size="35" required>
+    </div>
+    <div class="row">
+      <label for="date">Meeting date:</label>
+      <input type="date" id="date" required>
+    </div>
+  </form>
+  <br>
+  <div id="error">You must enter values for all fields.</div>
+  <input type="button" form="myForm" value="Add a new meeting"
+    onclick="addMtg(this.form);">
+  <br>
+  <h3 id="mtgHeader">Meeting Schedule:</h3>
+  <div class="table" id="list"></div>
+</div>
+<img src="../images/bookAndGlasses.png" width="280" height="153" alt="">
+</body>
+</html>

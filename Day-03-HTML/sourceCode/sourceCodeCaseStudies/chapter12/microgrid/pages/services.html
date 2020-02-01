@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Electric Power Services</title>
+<link rel="stylesheet" href="../library/microgrid.css">
+<style>
+  aside {
+    float:right;
+    width: 50%;
+    margin: 0px 20px;
+    font-size: small;
+  }
+  form {
+    margin: auto 30px;
+  }
+  fieldset {
+    text-align: center;
+    background-color: white;
+  }
+  .volatile {
+    padding-left: 5px;
+    text-align: left;
+    font-weight: bold;
+  }
+  p {
+    margin: 20px auto;
+  }
+  span {
+    font-style:italic;
+  }
+</style>
+<script>
+  var oldParagraphId = "Lighting";   // could be any paragraph
+  var originalColor;                 // original color
+
+  function initializeColor() {
+    originalColor =
+      document.getElementById(oldParagraphId).style.backgroundColor;
+  } // end initializeColor
+    
+  function highlight(selectedOption) {
+    document.getElementById(oldParagraphId).style.backgroundColor =
+      originalColor;
+    document.getElementById(selectedOption).style.backgroundColor =
+      "yellow";
+    oldParagraphId = selectedOption; 
+  } // end highlight
+
+  function showAspect(technology, currentAspect) {
+    var box1;   // technology display box
+    var box2;   // aspect display box
+
+    box1 = document.getElementById("technology");
+    box2 = document.getElementById("aspect");
+    box1.value = technology;
+    box2.value = currentAspect;
+    box1.style.backgroundColor = "#ffcccc";
+    box2.style.backgroundColor = "#ffcccc";
+  } // end showAspect
+
+  function clearAspect() {
+    var box1;   // technology display box
+    var box2;   // aspect display box
+
+    box1 = document.getElementById("technology");
+    box2 = document.getElementById("aspect");
+    box1.value = "";
+    box2.value = "";
+    box1.style.backgroundColor = "white";
+    box2.style.backgroundColor = "white";
+  } // end clearAspect
+</script>
+<script src="../library/navigation.js"></script>
+</head>
+
+<body onload="createHeaderFooter(), initializeColor()">
+<h2>Electric Power Services</h2>
+<aside>
+  <h3>Instructions for Interaction:</h3>
+  Click one of the radio buttons to highlight a paragraph. When cursor
+  moves into a paragraph, that paragraph's title appears in a box on
+  that paragraph and remains while cursor stays in that paragraph. When
+  cursor passes over an italicized phrase, the parragraph's technology
+  and the phrase's aspect (performance, cost, control, or information)
+  appear above under the "technology and aspect" legend.
+</aside>
+<form>
+  <h4>Highlight Technology:</h4>
+  <input type="radio" name= "tech" onclick=
+    "highlight('Lighting')">  Lighting<br>
+  <input type="radio" name= "tech" onclick=
+    "highlight('Demand_Limiting')">  Demand Limiting<br>
+  <input type="radio" name= "tech" onclick=
+    "highlight('Smart_Metering')">  Smart Metering<br>
+  <input type="radio" name= "tech" onclick=
+    "highlight('Local_Control')">  Local Control<br>
+  <input type="radio" name= "tech" onclick=
+    "highlight('Power_Conditioning')">  Power Conditioning<br><br>
+  <fieldset>
+    <legend>technology and aspect</legend>
+    <input type="text" id="technology" class="volatile" readonly
+      ="readonly">
+    <input type="text" id="aspect" class="volatile" readonly
+      ="readonly">
+  </fieldset><br>
+</form>
+<p id="Lighting" title="Lighting">
+  The city and its occupants are improving the efficiency of lighting.
+  Compact fluorescents have replaced many incandescent bulbs. LEDs
+  have replaced old traffic lights, and as they improve and become less
+  expensive, <span onmouseover="showAspect('lighting', 'performance')"
+  onmouseout="clearAspect()"> high-efficiency LEDs</span> are replacing
+  halogens and fluorescents too. 
+</p>
+<p id="Demand_Limiting" title="Demand_Limiting">
+  For decades utilities have motivated commercial and industrial
+  enterprises to level power consumption by offering <span onmouseover=
+  "showAspect('demand limiting', 'cost')" onmouseout="clearAspect()">
+  lower bulk energy rates with an extra demand charge</span> and
+  time-of-day metering. In response, customers install <span
+  onmouseover="showAspect('demand limiting', 'control')" onmouseout=
+  "clearAspect()"> controls that shut off selected equipment</span>
+  when consumption approaches a demand threshold or that schedule
+  operations for favorable times of day.
+</p>
+<p id="Smart_Metering" title="Smart_Metering">
+  In 2010, Lawrence's utility began installing residential
+  "smart meters." Instead of measuring just total energy consumed per
+  month, <span onmouseover="showAspect('smart metering',
+  'information')" onmouseout="clearAspect()"> smart meters transmit
+  frequent samples of instantaneous power back to the utility</span>,
+  enabling the utility to apply demand charges or time-of-day metering
+  to residential customers. The local utility promotes this practice
+  by allowing customers to use the internet to review their consumption
+  histories and alter their practices to <span onmouseover=
+  "showAspect('smart metering', 'cost')" onmouseout="clearAspect()">
+  minimize their expenses</span>.
+</p>
+<p id="Local_Control" title="Local_Control">
+  Also available are energy controls that operate entirely inside a
+  residence. These devices require more attention, but they provide
+  more privacy and enable residents to specify <span onmouseover=
+  "showAspect('local control', 'control')" onmouseout="clearAspect()">
+  scheduling and/or temperature control of individual loads</span> like
+  HVAC, lighting, and appliances to reduce consumption and <span
+  onmouseover="showAspect('local control', 'cost')" onmouseout=
+ "clearAspect()"> minimize demand or high time-of-day charges</span>.   
+</p>
+<p id="Power_Conditioning" title="Power_Conditioning">
+  Also available are <span onmouseover="showAspect(
+  'power conditioning', 'performance')" onmouseout="clearAspect()">
+  "power conditioners," which protect sensitive electronic equipment
+  </span> from voltage spikes, frequency variation, and other
+  pathological phenomena appearing on the power grid. This protects
+  the local facility and improves the <span onmouseover="showAspect(
+  'power conditioning', 'cost')" onmouseout="clearAspect()"> value of
+  locally generated electric power.</span> 
+</p>
+</body>
+</html>

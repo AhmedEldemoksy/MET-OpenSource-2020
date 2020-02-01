@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Park University Clock Tower</title>
+<style>
+  header {text-align: center;}
+  .table {display: table;}
+  .cell {
+    display: table-cell;
+    padding: 0px 10px 10px;
+  }
+  nav.cell {width: 80px;}
+
+  /* Avoid yellow background at left extending above the
+    page's main content. */
+  .cell > :nth-child(1) {margin-top: 0;}
+  nav {
+    color: darkred;
+    background-color: lemonchiffon;
+  }
+  .nav-heading {background-color: gold;}
+
+  /* Adjust link appearances. */ 
+  a {
+    text-decoration: none;
+    font-family: Tahoma, Geneva, sans-serif;
+  }
+  a:hover {text-decoration: underline;}
+  nav a {font-size: .8em;}
+  nav a {cursor: not-allowed;}
+  nav > * {margin: 1em 0;}
+</style>
+</head>
+
+<body>
+<header>
+  <h1 id="top">Park University's Clock Tower</h1>
+  <h5>
+    <a href="#tower-photo">Clock Tower Photograph</a>&nbsp; | &nbsp;
+    <a href="#pledge-drive">Pledge Drive</a>
+  </h5>
+</header>
+
+<div class="table">
+  <nav class="cell">
+    <div class="nav-heading">Other Park History</div>
+    <div><a>Swimming Pool</a></div>
+    <div><a>Herr House Ghosts</a></div>
+    <div><a>Old Kate</a></div>
+    <div><a>Zombie Bloodbath</a></div>
+  </nav>
+
+  <section class="cell">
+    <p>
+      The clock tower has a long and storied history.
+      Built in 800 A.D. by the ancient Parkite Indian tribe,
+      it was originally used as a beacon for late-night
+      buffalo-tipping parties.
+      In 1865, because of its extraordinary time-keeping accuracy,
+      it served as the world's first Coordinated Universal Time clock.
+    </p>
+    <p>
+      <img id="tower-photo" src="../images/clockTower.jpg"
+      alt="Clock Tower Photograph">
+    </p>
+    <h3 id="pledge-drive">Pledge Drive</h3>
+    <p>
+      The clock tower building is crumbling.
+      Park needs your support. Do it for the kids.
+      Send cash contributions to michael.loeffler@park.edu.
+    </p>
+    <a href="#top">^ Back to the Top</a>
+  </section>
+</div>
+</body>
+</html>

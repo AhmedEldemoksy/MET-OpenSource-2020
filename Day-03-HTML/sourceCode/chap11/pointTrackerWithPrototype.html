@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en" onclick="captureClick(event);">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Point Tracker</title>
+<script>
+  // This constructor creates a Point object for the location
+  // of the most recent mouse click.
+
+  function Point(x, y) {
+    this.x = x;
+    this.y = y;
+    Point.prototype.value = value;
+  } // end Point constructor
+
+  // Return the point in the format "(x, y)"
+
+  function value() {
+    return "(" + this.x + ", " + this.y + ")";
+  } // end value
+
+  //***************************************************
+
+  // This function stores a user's click location as a point.
+
+  function captureClick(e) {
+    var point;  // the most recently clicked point
+
+    point = new Point(e.clientX, e.clientY);
+    document.getElementById("pt").innerHTML = point.value();
+  } // end captureClick
+</script>
+</head>
+
+<body>
+<h1>Point Tracker</h1>
+<p>
+  Click your mouse anywhere on this web page to capture its location.
+  Click again for additional points.
+</p>
+Point location: <span id="pt"></span>
+</body>
+</html>

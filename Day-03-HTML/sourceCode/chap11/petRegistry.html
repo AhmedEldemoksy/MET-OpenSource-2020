@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Pet Registry</title>
+<style>
+  .table {display: table;}
+  .row {display: table-row;}
+  .row > * {display: table-cell;}
+  .table {border-spacing: 10px;}
+  .row > :first-child {text-align: right;}
+  #dog-more-info {display: none;}
+</style>
+<script src="petRegistry.js"></script>
+</head>
+
+<body>
+<h2>Pet Registry</h2>
+<form class="table" id="myForm">
+  <div class="row">
+    <label for="name">Pet name:</label>
+    <input type="text" id="name" required>
+  </div>
+  <div class="row">
+    <label for="petType">Pet type:</label>
+    <select id="petType" required
+      onchange="adjustForm(this.form);">
+      <option value=""></option>
+      <option value="dog">Dog</option>
+      <option value="hedgehog">Hedgehog</option>
+    </select>
+
+    <!-- the following controls are dependent on pet type -->
+    <div id="dog-more-info">
+      <label for="trick">Favorite trick:</label>
+      <input type="text" id="trick" value="none">
+    </div>
+  </div>
+</form>
+<br>
+<input type="button" form="myForm" value="Register your pet"
+  onclick="register(this.form);">
+<br>
+<p id="message"></p>
+</body>
+</html>

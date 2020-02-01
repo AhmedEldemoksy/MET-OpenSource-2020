@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Collector Performance</title>
+<link rel="stylesheet" href="../library/microgrid.css">
+<style>
+  body {
+    text-align: center;
+    min-width: 500px;   /* prevents label wrapping */
+  }
+  form, input:last-child {margin: 10px 20px;}
+
+  /* position the table */
+  .center {
+    margin: 10px 0;
+    display: flex; justify-content: center;
+  }
+</style>
+<script>
+  var form;                  // html element
+  var altitude;              // solar angle above horizon
+  var cosIncidenceAngle;     // perpendicular component of radiation
+
+  // This function invoked by user click on Calculate button
+
+  function calc(solarForm) {
+    var table;        // table of computed performance values
+    var row;          // row in displayed table of calculated values
+    var monthIndex;   // index of selected month
+
+    table = document.getElementById("performance");
+    row = table.insertRow(table.rows.length);
+    form = solarForm;
+    computeAngles();          // for altitude and cosIncidenceAngle
+    row.insertCell(0).innerHTML = form.elements["latitude"].value;
+    row.insertCell(1).innerHTML = form.elements["panelSlope"].value;
+    row.insertCell(2).innerHTML = form.elements["ratedWatts"].value;
+    monthIndex = form.elements["months"].selectedIndex;
+    row.insertCell(3).innerHTML =
+      document.getElementsByTagName("option")[monthIndex].innerHTML;
+    row.insertCell(4).innerHTML = findWatts();
+  } // end calc
+
+  function computeAngles() {
+    var latitude;   // earth latitude
+    var panelSlope; // angle of solar panels up from horizontal to south
+    var month;      // month number (Jan = 1, Feb = 2, ...)
+    // Using 1985 ASHRAE Fundamentals Guide, Chapter 27, Table 1, and
+    // approximating earth's elliptical orbit as a circle:
+    var solarDeclination; // solar altitude at north pole in radians
+    var cosAzimuth;       // at noon, this is always either -1.0 or +1.0
+    // Using 1985 ASHRAE Fundamentals Guide, Chapter 27,
+    // equation (3), at noon:
+    var sinAltitude;      // sin(solar altitude)
+
+    latitude = form.elements["latitude"].value * Math.PI/180;
+    panelSlope = form.elements["panelSlope"].value * Math.PI / 180;
+    month = form.elements["months"].selectedIndex + 1;
+    solarDeclination = (-23.45 * Math.PI/180)
+      * Math.cos(month * Math.PI/6);
+    cosAzimuth;      // at noon, this is always either -1.0 or +1.0
+    sinAltitude =
+      Math.cos(latitude) * Math.cos(solarDeclination)
+       + Math.sin(latitude) * Math.sin(solarDeclination);
+    altitude = Math.asin(sinAltitude);
+    if (altitude > 0) {
+      // Using 1985 ASHRAE Fundamentals Guide, Chapter 27,
+      // equation (4), at noon:
+      cosAzimuth =  
+        (Math.sin(solarDeclination) - sinAltitude * Math.sin(latitude))
+        / (Math.cos(altitude) * Math.cos(latitude));
+      cosIncidenceAngle = sinAltitude * Math.cos(panelSlope)
+        - cosAzimuth * Math.cos(altitude) * Math.sin(panelSlope);
+      if (cosIncidenceAngle < 0) {
+        cosIncidenceAngle = 0.0;
+      }
+    } // end if altitude > 0
+  } // end computeAngles
+
+  function findWatts() {
+    var ratedWatts;  // maximum panel output in Watts / square meter
+    var watts = 0;   // instantaneous Watts / square meter
+
+    ratedWatts = form.elements["ratedWatts"].value;
+    if (altitude > 0) {
+      watts = ratedWatts *
+        (0.86 * cosIncidenceAngle + 0.14 * Math.sin(altitude));
+    }
+    return Math.round(watts);
+  } // end findWatts
+</script>
+</head>
+
+<body onload="createHeaderFooter()">
+<h2>Solar Collector Performance</h2>
+<form>
+  Local Latitude (deg):
+  <input id="latitude" type="text" size="5" value="39">
+  Panel Slope (deg):
+  <input id="panelSlope" type="text" size="5" value ="20"><br>
+  <label for="ratedWatts">Rated Watts per Square Meter:</label>
+  <input id="ratedWatts" type="text" size="5" value="133"><br>
+  <label for="months">Month:</label>
+  <select id="months" name="months" multiple>
+    <option>Jan</option> <option>Feb</option> <option>Mar</option>
+    <option>Apr</option> <option>May</option> <option>Jun</option>
+    <option>Jul</option> <option>Aug</option> <option>Sep</option>
+    <option>Oct</option> <option>Nov</option> <option>Dec</option>
+  </select>
+  <input type="button" value="Calculate" onclick="calc(this.form)">
+</form>
+<h3>Calculation Results:</h3>
+<div class="center">
+  <table id="performance">
+    <tr>
+      <th>Latitude &nbsp;</th> <th>Slope &nbsp;</th> <th>Rated Watts
+      &nbsp;</th> <th>Month &nbsp;</th> <th> Watts per Square Meter</th>
+    </tr>
+  </table>
+</div>
+<h3>Assumptions and Instructions:</h3>
+<p>
+  Horizontal panels have a panel slope equal to zero. Positive panel
+  slope tips panels up from horizontal toward South. For southern
+  hemisphere, use negative latitude and negative panel slope. The
+  calculated result is at solar noon on the 21st day of the selected
+  month, assuming no clouds and no shading.
+</p>
+<p>
+  Inspect the volunteered values of Latitude, Slope, and Rated Watts.
+  Enter different values to suit your situation. Select a month. Then
+  click the "Calculate" button to display the watts per square meter
+  generated at noon for the selected conditions in the selected month.
+</p>
+</body>
+</html>

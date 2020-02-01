@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Super Dad</title>
+<style>
+  h1, h3 {text-align: center;}
+  td {border: thin solid;}
+  .center {display: flex; justify-content: center;}
+  .gap {width: 50px; border: none;}
+</style>
+</head>
+
+<body>
+<h1>Super Dad!</h1>
+<h3>Displaying each image with the PNG file's natural
+  dimensions (width="150" height="150")</h3>
+<div class="center">
+  <table>
+    <tr><th>PNG Format</th><th></th><th>SVG Format</th></tr>
+    <tr>
+      <td><img src="../images/superDad.png" alt="Super Dad standing"
+        width="150" height="150"></td>
+      <td class="gap"></td> <!-- can't adjust table cell margins -->
+      <td><img src="../images/superDad.svg" alt="Super Dad standing"
+        width="150" height="150"></td>
+    </tr>
+  </table>
+</div>
+<br>
+<h3>Displaying the same images as above, but with
+  expanded dimensions (width="400" height="250")</h3>
+<div class="center">
+  <table>
+    <tr><th>PNG Format</th><th></th><th>SVG Format</th></tr>
+    <tr>
+      <td><img src="../images/superDad.png" alt="Super Dad standing"
+        width="400" height="250"></td>
+      <td class="gap"></td> <!-- can't adjust table cell margins -->
+      <td><img src="../images/superDad.svg" alt ="Super Dad standing"
+        width="400" height="250"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

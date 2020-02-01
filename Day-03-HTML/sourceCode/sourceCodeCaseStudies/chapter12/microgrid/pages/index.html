@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Area Description</title>
+<link rel="stylesheet" href="../library/microgrid.css">
+<style>
+  figure {
+    position: relative;
+    height: 405px;
+  }
+  #streetMap {
+    position: absolute;
+    top: 0px; left: 0px;
+    width: 350px;
+  }
+  iframe {
+    position: absolute;
+    top: 0px; left: 370px;
+    width: 340px;
+    height: 325px;
+    margin: 0px 5px;
+  }
+  figcaption {
+    position: absolute;
+    top: 340px;
+    width: 720px;
+    font-size: small;
+    text-align: justify;
+  }
+  div {
+    width: 360px;
+    padding: 0px 10px;
+    display: table-cell;
+  }
+  .downtown {font-family: Helvetica, sans-serif;}
+  .eastLawrence {font-family: "Times New Roman", serif;}
+  .westLawrence {
+    font-family: cursive;
+    line-height: 1.2em;
+  }
+  .ku {
+    font-family: monospace;
+    font-weight: bold;
+  }
+  span.title {font-variant: small-caps;}
+  span.opportunity {font-style: italic;}
+</style>
+<script src="../library/navigation.js"></script>
+</head>
+
+<body onload="createHeaderFooter()">
+<h2>Description of the Area</h2>
+<map name="oldLawrence" id="oldLawrence">
+  <area href="../images/bowersockDam.jpg" shape="rect"
+    coords="175,4,192,52" target="photo" alt ="Dam and Hydroelectric"
+    title="Dam and Hydroelectric">
+  <area href="../images/downtownView.jpg" shape="poly"
+    coords="136,85,136,235,198,235,198,175,225,97,225,65,195,50"
+    target="photo" alt ="Downtown Lawrence" title="Downtown Lawrence">
+  <area href="../images/eastLawrence.jpg" shape="poly" coords=
+    "199,170,199,350,280,350,280,185,225,107" target="photo"
+    alt="East Lawrence Residential" title="East Lawrence Residential">
+  <area href="../images/industrialPark.jpg" shape="poly" coords=
+    "225,95,295,200,295,240,355,225,355,100,250,85" target="photo"
+    alt="East Lawrence Industrial" title="East Lawrence Industrial">
+  <area href="../images/oldWestLawrence.jpg"
+    shape="poly" coords=
+    "6,0,6,217,66,217,66,279,101,279,101,350,135,350,135,70,80,0"
+    target="photo" alt ="Old West Lawrence" title="Old West Lawrence">
+  <area href="../images/kansasUniv.jpg" shape="poly"
+    coords="0,218,0,330,100,330,100,280,65,280,65,218" target=
+    "photo" alt ="University of Kansas" title="University of Kansas">
+</map>
+<figure>
+  <img id="streetMap" src="../images/lawrenceMap.jpg"
+    alt="Map of Old Part of Lawrence" usemap="#oldLawrence">
+  <iframe name="photo" src="../images/downtownView.jpg"></iframe>
+  <figcaption>
+    <div>The street map on the left contains six regions surrounded by
+    hidden boundary lines: Dam and Hydroelectric, Downtown Lawrence,
+    East Lawrence Residential, East Lawrence Industrial, Old West
+    Lawrence, and University of Kansas.</div><div> Moving the cursor
+    from outside to inside one of these regions generates a pop-up box
+    that identifies the region just entered. Clicking within any region
+    displays a representative image in the frame on the right.</div>
+  </figcaption>
+</figure>
+<p class="downtown">
+  <span class="title">Downtown Lawrence</span> comprises about 20 city
+  blocks between South Park and the Kansas River. This area includes a
+  county courthouse, an art center, a library, the city hall, offices,
+  apartments, and two hotels. <span class="opportunity">It also has many
+  parking lots and attached shops and restaurants with roofs of similar
+  height that could accommodate solar collectors.</span>
+</p>
+<p class="eastLawrence">
+  East of downtown is an 80-block area called <span class="title">East
+  Lawrence</span>. The western half is residential with many small houses
+  and a grade school. The eastern half is industrial, with manufacturing
+  buildings, warehouses, a railroad station and tracks, open parking
+  areas, a rock-crushing plant, and the city's sewage plant. <span
+  class="opportunity">Solar collectors could cover parking areas and flat
+  industrial roofs. With combined heat and power (CHP), this area's
+  industry might also provide efficient heat and electricity for itself,
+  adjacent residences, and the nearby downtown.</span>
+</p>
+<p class="westLawrence">
+  West of downtown is an 80-block area called <span class="title">Old
+  West Lawrence</span>. The southern two-thirds is residential and
+  includes a grade school. The northern third has several medical
+  facilities with large parking lots, and there is some industrial land
+  by railroad tracks at the north end. <span class="opportunity">Solar
+  collectors could go on the school, medical, and industrial properties,
+  and on residence roofs not obstructed by trees.</span>
+</p>
+<p class="ku">
+  Southwest of Old West Lawrence is <span class="title">The University of
+  Kansas</span> (KU). Before switching to utility power around 1960, KU
+  produced its own heat and electricity. <span class="opportunity">Solar
+  collectors could cover many KU building roofs and parking lots. And KU
+  could implement a robust renewable microgrid like the one at the
+  University of California San Diego.</span>
+</p>
+</body>
+</html>

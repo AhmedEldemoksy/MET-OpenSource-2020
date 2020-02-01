@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Typical Property</title>
+<link rel="stylesheet" href="../library/microgrid.css">
+<style>
+  h2 {margin-bottom: 1em;}
+  .center {
+    display: flex; justify-content: center;
+  }
+  table {border-collapse: collapse;}
+  th, td {
+    border: thin solid;
+    padding: 2px 5px;
+  }
+  td:nth-child(3), td:nth-child(4) {
+    text-align: right;
+  }
+  .table {display: table;}
+  .row {display: table-row;}
+  .cell {
+    display: table-cell;
+    width: 40%;
+    text-align: justify;
+  }
+  h3 {text-align: center;}
+</style>
+<script src="../library/navigation.js"></script>
+</head>
+
+<body>
+<h2>Summertime Power in a Small (3000 sqft) Shop or Restaurant</h2>
+<div class="table">
+  <div class="row">
+    <p class="cell">
+      The smallest electrical system in Lawrence's downtown is the
+      electrical system in one small shop or restaurant, which typically
+      occupies one lot and is two stories tall. One lot is 25 feet wide
+      and 120 feet deep.
+    </p>
+    <p class="cell"> 
+      Most of the downtown properties are this size. However, some are
+      taller and/or occupy two or more lots. For one of these larger
+      properties, scale up the values in the table below.
+    </p>  
+  </div>
+</div>
+<div class="center">
+  <table>
+    <caption><h3>Noon Power Generation (positive) and Consumption
+      (negative)</h3></caption>
+    <tr><th>Component Description</th><th>Overall Size</th><th>Noon
+      Power</th><th>Installed Cost</th></tr>
+    <tr><td>PV Solar Collectors</td><td>137 m<sup>2</sup> panel area
+      </td><td>+15 kW</td><td>$45,000</td></tr>
+    <tr><td>Electrical Consumption</td><td>274 m<sup>2</sup> floor area
+      </td><td>-5 kW</td><td>  </td></tr>
+    <tr><td>Chilled Water Storage</td><td>2.3 m diameter x 2.1 m high
+      </td><td>-2 kW</td><td>$1000</td></tr>
+    <tr><td>Battery Storage</td><td>1.3 m x 1.0 m x 1.1 m high, 1250kg
+      </td><td>-6 kW</td><td>$6000</td></tr>
+  </table>
+</div>
+<h3>Typical System Description</h3>
+<div class="table">
+  <div class="row">
+    <p class="cell">
+      To avoid rooftop HVAC clutter, maximize efficiency, and facilitate
+      thermal storage, a ground-source heat pump heats and cools water for
+      HVAC and provides free heat for domestic hot water during the
+      cooling season. Peak electrical consumption (at 4:00 PM) is about
+      7.5 kW. At peak cooling load, the HVAC equipment consumes 4 kW.
+    </p>
+    <p class="cell">
+      At noon, the HVAC cooling equipment uses 2 kW to cool spaces and 2
+      kW to chill water for storage and use at a later time. Chilled-water
+      storage between 9:00 AM and 3:00 PM stores enough cooling to provide
+      maximum cooling for 3 evening hours. With 15% capacity factor (50%
+      clouds), solar collectors rated at 18 kW save $3300/year.
+    </p>
+  </div>
+</div>
+<h3>Assumptions</h3>  
+<div class="table">
+  <div class="row">
+    <p class="cell">
+      Although the average annual price of electricity in Lawrence is
+      $0.10/kWh, we assume $0.14/kWh because solar generation and storage
+      provide peaking power, which is more valuable than baseload power. 
+    </p>
+    <p class="cell">
+      The HVAC unit is a 5-ton Carrier 50YER ground-source heat pump.
+      Chilled water is stored in a 2000 gal Westheffer tank. Electricity
+      is stored in an 18 kWh M100 Aquion sodium-ion battery module.
+    </p>
+  </div>
+</div>
+</body>
+</html>

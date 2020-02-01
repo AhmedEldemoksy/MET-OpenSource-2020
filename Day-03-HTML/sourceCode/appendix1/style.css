@@ -1,0 +1,20 @@
+/* John Dean */
+
+nav {text-align: center;}
+
+/* Apply special formatting to the links at the top. */
+nav a, .current-tab {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav a {background-color: #666666;}
+nav a:hover {background-color: blue;}
+.current-tab {background-color: green;}
+
+h1 {text-align: center;}
+.right {float: right; margin: 10px;}
+.date {
+  color: red;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: smaller;
+}

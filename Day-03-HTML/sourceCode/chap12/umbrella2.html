@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="John Dean">
+<title>Improved Umbrella</title>
+<script>
+  function draw() {
+    var ctx;    // the canvas object's context
+    var offset; // distance from circle's center to bottom of
+                // umbrella's canopy
+
+    ctx = document.getElementById("canvas").getContext("2d");
+    offset = Math.sin(.2 * Math.PI) * 80;
+    ctx.strokeStyle = "silver";
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.moveTo(100, 100 - offset);
+    ctx.lineTo(100, 120);
+    ctx.stroke();
+
+    ctx.strokeStyle = "bisque";
+    ctx.lineWidth = 1;
+    ctx.fillStyle = "lightseagreen";
+    ctx.beginPath();
+    ctx.arc(100, 100, 80, 1.2 * Math.PI, 1.8 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+  } // end draw
+</script>
+</head>
+
+<body onload="draw();">
+<canvas id="canvas" width="300" height="135">
+</canvas>
+</body>
+</html>
